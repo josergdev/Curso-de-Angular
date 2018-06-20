@@ -87,8 +87,24 @@
       </tr>
       <tr>
         <td>{{nombre2}}</td>
-        <td>personalizado</td>
-        <td>{{nombre2 | capitalizado:1:2:3:4}}</td>
+        <td>capitalizado</td>
+        <td>{{nombre2 | capitalizado}}</td>
+      </tr>
+      <tr>
+        <td>{{nombre2}}</td>
+        <td>capitalizado:false</td>
+        <td>{{nombre2 | capitalizado:false}}</td>
+      </tr>
+      <tr>
+        <td>{{nombre}}</td>
+        <td>pass:{{mostrada}}</td>
+        <td>
+          {{nombre | pass:mostrada}}
+          <button (click)="mostrada = !mostrada" class="btn btn-outline-primary btn-block">
+            <span *ngIf="!mostrada" >Mostrar</span>
+            <span *ngIf="mostrada">No mostrar</span>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -100,4 +116,9 @@
 
   <h4>JSON</h4>
   <pre>{{ heroe | json }}</pre>
+
+  <h4>YouTube <small>Video</small></h4>
+  <hr>
+  <iframe width="560" height="315" [src]="video | domseguro:'https://www.youtube.com/embed/':'Rht7rBHuXW8'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 </div>

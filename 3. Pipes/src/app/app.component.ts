@@ -25,4 +25,6 @@ export class AppComponent {
   });
   hoy = new Date();
   nombre2 = 'joSé rodriGUEz GarcÍa';
+  video = 'Rht7rBHuXW8';
+  mostrada = false;
 }

@@ -5,13 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CapitalizadoPipe implements PipeTransform {
 
-  transform(value: string, ...args: any[]): string {
+  transform(value: string, todas: boolean = true): string {
     value = value.toLowerCase();
     const nombres = value.split(' ');
-    const salida: string[] = [];
-
-    for (const nombre of nombres) {
-      salida.push( nombre[0].toUpperCase() + nombre.substr(1) );
+    let salida: string[] = [];
+    if (todas) {
+      for (const nombre of nombres) {
+        salida.push( nombre[0].toUpperCase() + nombre.substr(1) );
+      }
+    } else {
+       nombres[0] = nombres[0][0].toUpperCase() + nombres[0].substr(1);
+       salida = nombres;
     }
 
     return salida.join(' ');

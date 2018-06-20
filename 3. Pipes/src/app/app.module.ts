@@ -5,13 +5,17 @@ import localeEs from '@angular/common/locales/es';
 
 import { AppComponent } from './app.component';
 import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
+import { DomseguroPipe } from './pipes/domseguro.pipe';
+import { PassPipe } from './pipes/pass.pipe';
 
 registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [
     AppComponent,
-    CapitalizadoPipe
+    CapitalizadoPipe,
+    DomseguroPipe,
+    PassPipe
   ],
   imports: [
     BrowserModule

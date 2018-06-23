@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,13 +7,31 @@ import { Observable } from 'rxjs';
 })
 export class SpotifyService {
 
-  private url = 'https://api.spotify.com/v1/search';
+  private urlSearch = 'https://api.spotify.com/v1/search';
+  private urlArtist = 'https://api.spotify.com/v1/artists';
+
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'authorization':  'Bearer BQAzvWM7mzXmTqXkBp5HJZ-l4gAm3WvFsEWNtnxlLzSLcrozrNoxw-hBdERmPh3mnAV1nUSpfLM183np3SY',
+    })
+  };
 
   constructor(private httpClient: HttpClient) { }
 
-  public getArtistsList$(): Observable<any[]> {
-    const query = `${this.url}?q=metallica&type=artist`;
-    return this.httpClient.get<any[]>(query);
+  public getArtistsList$(cadena: string): Observable<any> {
+    const query = `${this.urlSearch}?q=${cadena}&type=artist`;
+    return this.httpClient.get<any>(query, this.httpOptions);
+  }
+
+  public getArtist$(id: string): Observable<any> {
+    const query = `${this.urlArtist}/${id}`;
+    return this.httpClient.get<any>(query, this.httpOptions);
+  }
+
+  public getTopOfArtist$(id: string): Observable<any> {
+    const query = `${this.urlArtist}/${id}/top-tracks?country=ES`;
+    return this.httpClient.get<any>(query, this.httpOptions);
   }
 
 }

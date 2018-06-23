@@ -1,3 +1,22 @@
-<pre>{{artists | json}}</pre>
-<pre style="color: white">{{fullError | json}}</pre>
-<p>{{message}}</p>
+<div class="container pt-5">
+    <div class="row">
+
+        <div class="col-md-3">
+          <label for="cadena">Buscar</label>
+          <input [(ngModel)]="cadena" (keyup)="buscarArtistas()" type="text" name="cadena" placeholder="Buscar por artista..." class="form-control">
+          <hr>
+        </div>
+
+        <div class="col-md-9">
+          <div class="row">
+            <div *ngFor="let artist of artists" [routerLink]="['/artist', artist.id]" class="col-md-3 puntero">
+              <img [src]="artist.images | imagen" class="img-fluid img-thumbnail" alt="">
+              <p class="text-center">{{artist.name}}</p>
+              <hr>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+</div>

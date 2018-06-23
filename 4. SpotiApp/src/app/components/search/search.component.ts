@@ -9,26 +9,25 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class SearchComponent implements OnInit {
 
-  public artists: any[];
+  public artists: any;
+  public cadena = '';
+
   public message: string;
   public fullError: any;
 
   constructor(private spotifyService: SpotifyService) { }
 
   ngOnInit() {
-    this.refreshData();
   }
 
-  private refreshData = () => {
-    this.message = `Refreshing Data`;
-    this.fullError = '';
-    this.spotifyService
-      .getArtistsList$()
-      .subscribe(this.showArtists, this.catchError);
+  public buscarArtistas() {
+    this.spotifyService.getArtistsList$(this.cadena).subscribe(this.getArtists, this.catchError);
   }
 
-  private showArtists = (artists: any[]) => {
-    this.artists = artists;
+
+  private getArtists = data => {
+    this.artists = data.artists.items;
+    console.log(this.artists);
     this.message = 'artists Ok';
   }
 

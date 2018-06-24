@@ -15,5 +15,9 @@
           <a class="nav-link" [routerLink]="['buscar']">Buscar</a>
         </li>
       </ul>
+      <form (ngSubmit)="refreshToken()" class="form-inline my-2 my-lg-0">
+        <input [(ngModel)]="token" name="token" class="form-control mr-sm-2" type="search" placeholder="Token" aria-label="Search">
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Refresh token</button>
+      </form>
     </div>
   </nav>

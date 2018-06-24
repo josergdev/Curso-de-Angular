@@ -10,10 +10,11 @@ export class SpotifyService {
   private urlSearch = 'https://api.spotify.com/v1/search';
   private urlArtist = 'https://api.spotify.com/v1/artists';
 
+  private token: string;
 
   private httpOptions = {
     headers: new HttpHeaders({
-      'authorization':  'Bearer BQAzvWM7mzXmTqXkBp5HJZ-l4gAm3WvFsEWNtnxlLzSLcrozrNoxw-hBdERmPh3mnAV1nUSpfLM183np3SY',
+      'authorization':  'Bearer BQAWsi2Va0BDW6RCk6qaUVihByedUKZMmTC6QFY01bhqqYhALtHi6VAEJ2aOfEW4pr2HY37PafxCcveIklU',
     })
   };
 
@@ -32,6 +33,11 @@ export class SpotifyService {
   public getTopOfArtist$(id: string): Observable<any> {
     const query = `${this.urlArtist}/${id}/top-tracks?country=ES`;
     return this.httpClient.get<any>(query, this.httpOptions);
+  }
+
+  public refreshToken(token: string) {
+    this.token = token;
+    console.log(this.httpOptions);
   }
 
 }

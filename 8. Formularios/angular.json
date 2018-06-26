@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "authApp": {
+    "formularios": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/authApp",
+            "outputPath": "dist/formularios",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,9 +25,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/auth0-js/build/auth0.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -52,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "authApp:build"
+            "browserTarget": "formularios:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "authApp:build:production"
+              "browserTarget": "formularios:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "authApp:build"
+            "browserTarget": "formularios:build"
           }
         },
         "test": {
@@ -97,7 +95,7 @@
         }
       }
     },
-    "authApp-e2e": {
+    "formularios-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -105,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "authApp:serve"
+            "devServerTarget": "formularios:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "authApp:serve:production"
+              "devServerTarget": "formularios:serve:production"
             }
           }
         },
@@ -125,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "authApp"
+  "defaultProject": "formularios"
 }

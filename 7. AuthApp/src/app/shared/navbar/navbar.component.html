@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" [routerLink]="['']">AuthApp</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,10 +12,11 @@
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['/precios']">Precios</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li *ngIf="isAuthenticated()" class="nav-item" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['/protegida']">Protegida</a>
         </li>
       </ul>
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="button">Log In</button>
+      <button (click)="login()" *ngIf="!isAuthenticated()" class="btn btn-outline-primary my-2 my-sm-0" type="button">Log In</button>
+      <button (click)="logout()" *ngIf="isAuthenticated()" class="btn btn-outline-primary my-2 my-sm-0" type="button">Log Out</button>
     </div>
   </nav>

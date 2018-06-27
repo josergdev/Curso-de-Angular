@@ -1,3 +1,38 @@
-<p>
-  heroes works!
-</p>
+<h1>Heroes</h1>
+<hr>
+
+<div class="row">
+  <div class="col-md-12 mb-3">
+    <button [routerLink]="['/heroe','nuevo']"
+            class="btn btn-outline-primary"
+            type="button">Nuevo heroe</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Casa</th>
+          <th scope="col">Bio</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let heroeId of heroes; index as i">
+          <td>{{i+1}}</td>
+          <td>{{heroeId.heroe.nombre}}</td>
+          <td>{{heroeId.heroe.casa}}</td>
+          <td>{{heroeId.heroe.bio}}</td>
+          <td>
+            <button [routerLink]="['/heroe', heroeId.id]" class="btn btn-outline-success mr-1" type="button">Editar</button>
+            <button (click)="borrarHeroe(heroeId)" class="btn btn-outline-danger" type="button">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

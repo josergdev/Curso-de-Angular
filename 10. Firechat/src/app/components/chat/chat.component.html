@@ -1,0 +1,40 @@
+<div class="container main-container">
+  <div class="d-flex justify-content-between">
+    <div>
+        <h1>FireChat</h1>
+    </div>
+    <div>
+      <button *ngIf="getUser() | async" (click)="logout()" class="btn btn-outline-danger">Log Out</button>
+    </div>
+  </div>
+  <hr>
+  <div *ngIf="!(getUser() | async)">
+    <div class="d-flex justify-content-between">
+      <div><h3>Log In</h3></div>
+      <div>
+        <button (click)="login('Google')" class="btn btn-outline-primary mr-1">Google</button>
+        <button (click)="login('Twitter')" class="btn btn-outline-primary">Twitter</button>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div *ngIf="getUser() | async" class="chat-window mt-3">
+      <h3>Chat</h3>
+      <hr>
+      <div #scrollMe [scrollTop]="scrollMe.scrollHeight" id="app-mensajes" class="app-mensajes">
+        <div *ngFor="let message of getMessages() | async"
+             [ngClass]="{'text-right': message.uid === (getUser() | async)?.uid}">
+          <span class="badge"
+                [ngClass]="{'badge-primary': message.uid === (getUser() | async)?.uid, 'badge-success': message.uid !== (getUser() | async)?.uid}">{{message.name}}</span>
+          <p>{{message.message}}</p>
+        </div>
+
+      </div>
+      <input  [(ngModel)]="mensaje"
+              name="mensaje"
+              (keyup.enter)="enviar()"
+              class="form-control"
+              placeholder="mensaje...">
+    </div>
+  </div>
+</div>

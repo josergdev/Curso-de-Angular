@@ -1,0 +1,29 @@
+<div class="jumbotron p-5">
+  <div class="container">
+    <h3 for="">Buscar película: </h3>
+    <input [(ngModel)]="query" (keyup)="searchPeliculas()" class="form-control d-inline" type="text" placeholder="Película...">
+  </div>
+</div>
+<div *ngIf="peliculas.length > 0" class="album py-5 bg-light">
+  <div class="container">
+
+    <div class="row">
+
+      <div *ngFor="let pelicula of peliculas" class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" [src]="'https://image.tmdb.org/t/p/w500/'+ pelicula.backdropPath" onError="this.src='../../../assets/default.png'" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-text">{{pelicula.title}}</h4>
+            <p class="card-text">{{pelicula.overview | slice:0:200}}...</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button [routerLink]="['/pelicula', pelicula.id]" [queryParams]="{search: query}"  type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

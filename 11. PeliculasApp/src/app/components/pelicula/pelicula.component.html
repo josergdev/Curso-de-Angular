@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row pt-3">
+    <div class="col">
+      <h1>{{pelicula?.title}}</h1>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <img [src]="'https://image.tmdb.org/t/p/w500/'+ pelicula?.posterPath" width="100%" alt="Portada">
+    </div>
+    <div class="col-md-8">
+      <h3>Sinopsis</h3>
+      <p>{{pelicula?.overview}}</p>
+      <p><strong>Estreno:</strong> {{pelicula?.releaseDate | date}}</p>
+      <p><strong>Popularidad:</strong><span class="badge badge-primary ml-2 d-inline">{{pelicula?.popularity}}</span></p>
+      <p><strong>Nota media:</strong><span class="badge badge-primary ml-2 d-inline">{{pelicula?.voteAverage}}</span></p>
+      <button (click)="goBack()" class="btn btn-outline-danger">Regresar</button>
+    </div>
+  </div>
+</div>

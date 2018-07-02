@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="row">
+      <div [routerLink]="['/pelicula', peliculas[0]?.id]" class="col-md-12 div-pic-1 d-flex align-items-end p-2" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w780'+ peliculas[0]?.backdropPath +')'}">
+        <div>
+          <img class="portrait"  [src]="'https://image.tmdb.org/t/p/w500/'+ peliculas[0]?.posterPath" alt="El cuento de la criada">
+        </div>
+        <div>
+          <h3 class="info tittle">{{peliculas[0]?.title}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div [routerLink]="['/pelicula', peliculas[1]?.id]" class="col-sm-6 div-pic-2 d-flex align-items-end p-2" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w780'+ peliculas[1]?.backdropPath +')'}">
+        <div class="d-sm-none">
+          <img class="portrait" [src]="'https://image.tmdb.org/t/p/w500/'+ peliculas[1]?.posterPath" alt="jurassic world">
+        </div>
+        <div>
+          <h3 class="info tittle">{{peliculas[1]?.title}}</h3>
+        </div>
+      </div>
+      <div [routerLink]="['/pelicula', peliculas[2]?.id]" class="col-sm-6 div-pic-2 d-flex align-items-end p-2" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w780'+ peliculas[2]?.backdropPath +')'}">
+        <div class="d-sm-none">
+          <img class="portrait" [src]="'https://image.tmdb.org/t/p/w500/'+ peliculas[2]?.posterPath" alt="jurassic world">
+        </div>
+        <div>
+          <h3 class="info tittle">{{peliculas[2]?.title}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="row">
+      <div [routerLink]="['/pelicula', peliculas[3]?.id]" class="col-sm-6 div-pic-2 d-flex align-items-end p-2" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w780'+ peliculas[3]?.backdropPath +')'}">
+        <div class="d-sm-none">
+          <img class="portrait" [src]="'https://image.tmdb.org/t/p/w500/'+ peliculas[3]?.posterPath" alt="jurassic world">
+        </div>
+        <div>
+          <h3 class="info tittle">{{peliculas[3]?.title}}</h3>
+        </div>
+      </div>
+      <div [routerLink]="['/pelicula', peliculas[4]?.id]" class="col-sm-6 div-pic-2 d-flex align-items-end p-2" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w780'+ peliculas[4]?.backdropPath +')'}">
+        <div class="d-sm-none">
+          <img class="portrait" [src]="'https://image.tmdb.org/t/p/w500/'+ peliculas[4]?.posterPath" alt="jurassic world">
+        </div>
+        <div>
+          <h3 class="info tittle">{{peliculas[4]?.title}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div [routerLink]="['/pelicula', peliculas[5]?.id]" class="col-md-12 div-pic-1 d-flex align-items-end p-2" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w780'+ peliculas[5]?.backdropPath +')'}">
+        <div>
+          <img class="portrait" [src]="'https://image.tmdb.org/t/p/w500/'+ peliculas[5]?.posterPath" alt="jurassic world">
+        </div>
+        <div>
+          <h3 class="info tittle">{{peliculas[5]?.title}}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
